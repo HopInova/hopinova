@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HopInova — Site em construção</title>
+  <meta name="description" content="HopInova — Site em construção. Em breve lançaremos novidades." />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#7c5cff;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.08), transparent),
+                  radial-gradient(1000px 500px at 90% 80%, rgba(0,204,175,0.04), transparent),
+                  var(--bg);
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .card{
+      width:100%;
+      max-width:920px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      padding:40px;
+      border-radius:12px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      display:flex;
+      gap:32px;
+      align-items:center;
+    }
+
+    .left{
+      flex:1 1 480px;
+    }
+    .logo{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:18px;
+    }
+    .logo .dot{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#00c0af);
+      display:inline-block;box-shadow:0 6px 18px rgba(124,92,255,0.18), 0 2px 6px rgba(0,0,0,0.6);
+    }
+    h1{
+      margin:0 0 12px 0;
+      font-size:28px;
+      line-height:1.05;
+      letter-spacing:-0.02em;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+    }
+
+    .count{
+      display:flex;
+      gap:12px;
+      margin:16px 0 22px 0;
+    }
+    .count .item{
+      background:var(--glass);
+      padding:10px 14px;
+      border-radius:8px;
+      min-width:72px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .count .num{
+      font-weight:600;
+      font-size:20px;
+    }
+    .count .lbl{font-size:12px;color:var(--muted);margin-top:6px}
+
+    .right{
+      width:220px;
+      text-align:center;
+    }
+    .illustration{
+      width:160px;height:160px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      display:flex;align-items:center;justify-content:center;margin:0 auto 14px auto;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .spinner{
+      width:62px;height:62px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#00c0af);
+      display:flex;align-items:center;justify-content:center;color:#001; font-weight:700;
+      animation: float 2s ease-in-out infinite;
+      transform-origin:center;
+    }
+    @keyframes float{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+      100%{transform:translateY(0)}
+    }
+    footer.note{
+      margin-top:18px;color:var(--muted);font-size:13px;
+    }
+
+    @media (max-width:820px){
+      .card{flex-direction:column;align-items:stretch;padding:28px}
+      .right{width:100%;text-align:left}
+      .illustration{margin:0 0 10px 0}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <div class="left">
+      <div class="logo" aria-hidden="true">
+        <span class="dot"></span>
+        <strong>HopInova</strong>
+      </div>
+
+      <h1 id="title">Estamos quase lá — site em construção</h1>
+      <p class="lead">Estamos trabalhando para trazer algo novo e melhor. Obrigado pela paciência!</p>
+
+      <div class="count" aria-hidden="true">
+        <div class="item">
+          <div class="num" id="days">--</div>
+          <div class="lbl">Dias</div>
+        </div>
+        <div class="item">
+          <div class="num" id="hours">--</div>
+          <div class="lbl">Horas</div>
+        </div>
+        <div class="item">
+          <div class="num" id="mins">--</div>
+          <div class="lbl">Minutos</div>
+        </div>
+        <div class="item">
+          <div class="num" id="secs">--</div>
+          <div class="lbl">Segundos</div>
+        </div>
+      </div>
+
+      <p class="note">Contato: <a href="mailto:contato@hopinova.com" style="color:var(--accent)">contato@hopinova.com</a></p>
+    </div>
+
+    <div class="right" aria-hidden="false">
+      <div class="illustration" role="img" aria-label="Ilustração de construção">
+        <div class="spinner">HI</div>
+      </div>
+      <div style="color:var(--muted);font-size:14px">Lançamento em breve</div>
+    </div>
+  </main>
+
+  <script>
+    // Define lançamento para o último dia de fevereiro:
+    // - calcula o último dia de fevereiro do ano atual;
+    // - se já passou, usa fevereiro do próximo ano.
+    (function() {
+      const now = new Date();
+      let year = now.getFullYear();
+      // new Date(year, 2, 0) => último dia de fevereiro do `year`
+      const febLastThisYear = new Date(year, 2, 0, 10, 0, 0); // 10:00 no último dia de fevereiro
+      if (now > febLastThisYear) {
+        year += 1;
+      }
+      const launchDate = new Date(year, 2, 0, 10, 0, 0);
+
+      function updateCountdown() {
+        const now = new Date();
+        let diff = Math.max(0, launchDate - now);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff -= days * (1000 * 60 * 60 * 24);
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        diff -= hours * (1000 * 60 * 60);
+        const mins = Math.floor(diff / (1000 * 60));
+        diff -= mins * (1000 * 60);
+        const secs = Math.floor(diff / 1000);
+
+        document.getElementById('days').textContent = String(days).padStart(2,'0');
+        document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+        document.getElementById('mins').textContent = String(mins).padStart(2,'0');
+        document.getElementById('secs').textContent = String(secs).padStart(2,'0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
+</body>
+</html>
